@@ -45,3 +45,6 @@ tarefas = [
         "status": "concluída"
     }
 ]
+
+## Tupla 
+cores = ("azul", "vermelho", "verde") ## Tuplas são imutáveis
