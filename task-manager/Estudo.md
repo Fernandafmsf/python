@@ -101,3 +101,7 @@ def somar(a, b):
 
 print mostra algo na tela, enquanto return devolve um valor para quem chamou a função. 
 
+
+### Imports 
+Para criar modulos e exportar, basta criar um novo arquivo .py, adicionar as funções nele e, para utilizar em outro arquivo, importar com from nome_arquivo import nome_funções 
+
