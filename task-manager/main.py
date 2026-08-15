@@ -2,7 +2,9 @@ name = input("What is your name? ")
 
 tasks = []
 
-def add_task(title, status):
+def add_task():
+    title = input("Whats the task title?")
+    status = input("Whats the task status?")
     tasks.append({
         "title": title,
         "status": status
@@ -13,10 +15,26 @@ def list_tasks(tasks):
         print(f"Title: {task['title']}, Status: {task['status']}")
 
 def finish_task(task):
-    task["status"] = "completed"
+    list_tasks(tasks)
+    task_title = input("Enter the title of the task to finish: ")
+    for task in tasks: 
+            if task["title"] == task_title:
+                task["status"] = "completed"
+                print(f"Task '{task_title}' marked as completed.")
+                break
+    else:
+        print(f"Task '{task_title}' not found.")
 
 def remove_task(task):
-    tasks.remove(task)
+    list_tasks(tasks)
+    task_title = input("Enter the title of the task to remove: ")
+    for task in tasks:
+        if task['title'] == task_title:
+            tasks.remove(task)
+            print(f"Task '{task_title}' removed.")
+            break
+    else:
+        print(f"Task '{task_title}' not found.")
 
 while True:
     print("\n --- Menu ---")
@@ -29,32 +47,13 @@ while True:
     option = input("Choose an option: ")
 
     if option == "1":
-        title  = input("Whats the task title?")
-        status = input("Whats the task status?")
-
-        add_task(title, status)
+        add_task()
     elif option == "2":
         list_tasks(tasks)
     elif option == "3":
-        list_tasks(tasks)
-        task_title = input("Enter the title of the task to finish: ")
-        for task in tasks:
-            if task["title"] == task_title:
-                finish_task(task)
-                print(f"Task '{task_title}' marked as completed.")
-                break
-        else:
-            print(f"Task '{task_title}' not found.")    
+        finish_task(tasks)
     elif option == "4":
-        list_tasks(tasks)
-        task_title = input("Enter the title of the task to remove: ")
-        for task in tasks:
-            if task["title"] == task_title:
-                remove_task(task)
-                print(f"Task '{task_title}' removed.")
-                break
-        else:
-            print(f"Task '{task_title}' not found.")    
+        remove_task(tasks)
     elif option == "5":
         print("Exiting the program...")
         break
