@@ -101,10 +101,3 @@ def somar(a, b):
 
 print mostra algo na tela, enquanto return devolve um valor para quem chamou a função. 
 
-
-
-Day 1 - 10/08 
-Today I started learning python. 
-- Variables, inputs and outputs 
-- Lists, dicts and tuples 
-- Started a small task manager project 
