@@ -1,46 +1,66 @@
-## Estudando python via projeto
+# Estudando Python via Projeto
 
-### Ambiente virtualizado python 
-Essa virtualização é usada em cada projeto para que possamos fazer o controle das bibliotecas/dependencias por projeto, sem haver a necessidade de instalar globalmente. 
-Por exemplo, pode ser que um projeto precise de uma versão especifica de uma sistema, enquanto outro projeto vai precisar de uma versão mais atualizada. 
+## Ambiente Virtualizado Python
 
+Essa virtualização é usada em cada projeto para controlar as bibliotecas/dependências por projeto, sem instalar globalmente.
+Por exemplo, um projeto pode precisar de uma versão específica de uma biblioteca, enquanto outro precisa de uma versão mais atualizada.
 
+```bash
 # Criar
 python3 -m venv venv
 
 # Ativar
 source venv/bin/activate
+```
 
-### Variaveis, tipos e prints 
-input() e output(), input usado para recolher informaçoes do usario. Vale ressaltar que toda informaçao inicialmente informada será uma string. Caso precisemos basta converter adicionando um 'int()' na frente, por exemplo 
-f-string, forma de exibir uma mensagem no terminal exibindo as variaveis usando paratenteses: 
-``print(f"Olá, {nome}!"")``
+---
 
-## Lista, tuplas e dicionarios 
-list -> guarda varias coisas em ordem 
-dict -> guarda infos relacionadas usando chave:valor
-tuple -> guarda varios valores que, em geral, não devem ser alterados 
+## Variáveis, Tipos e Prints
 
-#### Lista
+- `input()` é usado para recolher informações do usuário. Toda informação recebida será uma `string` por padrão. Para converter, basta envolver com `int()`, por exemplo.
+- **f-string**: forma de exibir variáveis em mensagens no terminal usando chaves:
+
+```python
+print(f"Olá, {nome}!")
+```
+
+---
+
+## Listas, Tuplas e Dicionários
+
+| Tipo    | Descrição                                              |
+|---------|--------------------------------------------------------|
+| `list`  | Guarda vários valores em ordem                         |
+| `dict`  | Guarda informações relacionadas usando `chave: valor`  |
+| `tuple` | Guarda vários valores que, em geral, não devem ser alterados |
+
+### Lista
+
+```python
 tarefas = [
     "Estudar Python",
     "Fazer exercício",
     "Estudar Git"
 ]
 tarefas.append("Estudar SQL")
+```
 
+### Dicionário
 
-#### Dicionario
-tarefa = { 
+```python
+tarefa = {
     "titulo": "Estudar Python",
     "status": "pendente"
 }
 
-Acessamos os valores pelas chaves 
+# Acessamos os valores pelas chaves
 print(tarefa["titulo"])
+```
 
-#### Lista de dicionários 
-Cada tarefa é um dicionário
+### Lista de Dicionários
+
+```python
+# Cada tarefa é um dicionário
 tarefas = [
     {
         "titulo": "Estudar Python",
@@ -51,36 +71,47 @@ tarefas = [
         "status": "concluída"
     }
 ]
+
 tarefas.append({
     "titulo": "Fazer exercício",
     "status": "concluída"
 })
+```
 
-#### Tupla 
-Parece uma lista, mas é imutável. Ao tentar mudar o valor da erro 
+### Tupla
+
+Parece uma lista, mas é imutável — ao tentar alterar um valor, ocorre um erro.
+
+```python
 cores = ("vermelho", "azul", "verde")
-cores[0] = "amarelo" -> daria erro 
+cores[0] = "amarelo"  # TypeError: 'tuple' object does not support item assignment
+```
 
+---
 
-### Condicionais 
+## Condicionais
 
-#### While 
-Repete um bloco enquanto a condiçao for verdadeira 
+### `while`
 
+Repete um bloco enquanto a condição for verdadeira.
 
-#### While true 
-Muito usado para menus. True é sempre verdadeiro, criando um loop infinito. Para sair usamos um break com uma condiçao 
+### `while True`
 
+Muito usado para menus. `True` é sempre verdadeiro, criando um loop infinito. Para sair, usamos `break` com uma condição.
+
+```python
 while True:
     resposta = input("Digite sair para parar: ")
 
     if resposta == "sair":
         break
+```
 
+### `if`, `else` e `elif`
 
-#### if, else e elif 
-Tomada de decisão. elif é usado para testar outra condiçao. Seria o else if. 
+Tomada de decisão. `elif` testa outra condição (equivalente ao `else if`). Python verifica as condições de cima para baixo.
 
+```python
 idade = 15
 
 if idade >= 18:
@@ -89,19 +120,29 @@ elif idade >= 13:
     print("Adolescente")
 else:
     print("Criança")
+```
 
-Python verifica de cima para baixo 
+---
 
-### Funções 
-Bloco de codigo que criamos para realizar uma funçao especifica. 
+## Funções
 
+Bloco de código criado para realizar uma tarefa específica.
+
+```python
 def somar(a, b):
     resultado = a + b
     return resultado
+```
 
-print mostra algo na tela, enquanto return devolve um valor para quem chamou a função. 
+> `print` mostra algo na tela, enquanto `return` devolve um valor para quem chamou a função.
 
+---
 
-### Imports 
-Para criar modulos e exportar, basta criar um novo arquivo .py, adicionar as funções nele e, para utilizar em outro arquivo, importar com from nome_arquivo import nome_funções 
+## Imports
+
+Para criar módulos, basta criar um novo arquivo `.py` e adicionar as funções nele. Para usar em outro arquivo, importe com:
+
+```python
+from nome_arquivo import nome_funcao
+```
 
